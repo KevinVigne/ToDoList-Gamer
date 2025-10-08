@@ -3,20 +3,20 @@ namespace App\Models;
 use PDO;
 use Config\Database;
 
-class task
+class Task
 {
-    private ?int $id_task;
+    private ?int $id_task; 
     private ?string $title;
     private ?string $description;
-    private ?string $statut;
+    private ?string $status;
 
 // faire la methode construct .... elle se lance à l'instanciation de la class task
-    public function __construct__(?int $id_task,?string $title,?string $description,?string $statut)
+    public function __construct(?int $id_task,?string $title,?string $description,?string $status)
     {
         $this->id_task = $id_task;
         $this->title = $title;
          $this->description = $description;
-         $this->statut=$statut;
+         $this->status=$status;
 
     }
     //requette sql 
@@ -24,12 +24,12 @@ class task
         //connexion à la base de données
           $pdo = Database::getConnection();
         //requette sql
-           $sql = "INSERT INTO `task` (`title`,`description`, `statut`) 
+           $sql = "INSERT INTO `task` (`title`,`description`, `status`)
                 VALUES (?,?,?)";
            $stmt = $pdo->prepare($sql);
-           return $stmt->execute([$this->tttle, $this->description, $this->statut]);
+           return $stmt->execute([$this->title, $this->description, $this->status]);
     }
-}
+
     //Faire les Get  
      public function getIdTask():?int
      {
@@ -43,9 +43,9 @@ class task
      {
         return $this->description;
      }
-     public function getStatut():?string
+     public function getStatus():?string
      {
-         return $this->statut;
+         return $this->status;
      }
     // faire les Set 
      public function setIdTask(?int $id_task): void
@@ -60,9 +60,9 @@ class task
      {
         $this->desccription = $description;
      }
-     public function setStatut(?string $statut): void
+     public function setStatus(?string $status): void
      {
-        $this->statut = $statut;
+        $this->status = $status;
      }
         
 }

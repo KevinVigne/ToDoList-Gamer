@@ -14,10 +14,14 @@ class TaskController extends AbstractController{
                   $this->totalCheck('description',$description);
                   //si ya aucune erreur 
                   if(empty($this->arrayError)){
-                        
-                  }
+                        $today = date("Y-m-d");
+                        $task= new Task (null,$title,$description,'à faire');
+                        $task->addtask();
+                        //on fois la tache est ajoutée on redirige vers accueil ('/')
+                         $this->redirectToRoute('/', 200);//code formulaire
             }
-          require_once(__DIR__ . "/../Views/addtask.view.php"); 
-      }
+            }   require_once(__DIR__ . "/../Views/addtask.view.php"); 
       
+        
+      }
 }

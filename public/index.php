@@ -5,5 +5,6 @@ use Config\Router;
 
 $router = new Router;
 $router->addRoute('/','HomeController','index'); 
-$router->addRoute('/task', 'TaskController', 'addtask');
+$router->addRoute('/404', 'ErrorController', 'notFound');
+$router->addRoute('/ajouter', 'TaskController', 'addtask');
 $router->handleRequest();
