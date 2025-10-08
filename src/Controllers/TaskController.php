@@ -20,8 +20,9 @@ class TaskController extends AbstractController{
                         //on fois la tache est ajoutée on redirige vers accueil ('/')
                          $this->redirectToRoute('/', 200);//code formulaire
             }
-            }   require_once(__DIR__ . "/../Views/addtask.view.php"); 
-      
-        
+            }   
+                  require_once(__DIR__ . "/../Views/addtask.view.php"); 
       }
+
+
 }
