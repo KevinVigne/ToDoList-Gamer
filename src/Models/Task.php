@@ -30,6 +30,23 @@ class Task
            return $stmt->execute([$this->title, $this->description, $this->status]);
     }
 
+        public function allTask()
+    {
+        $pdo = Database::getConnection();
+        $sql = "SELECT `id_task`,`title`,`description`,`status` FROM `task`";
+       
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $alltask = [];
+
+        foreach($result as $row){
+            $task = new Task($row['id_task'],$row['title'],$row['description'],$row['status']);
+            $alltask[] = $task;
+        } return $alltask; 
+      }
+
     //Faire les Get  
      public function getIdTask():?int
      {
