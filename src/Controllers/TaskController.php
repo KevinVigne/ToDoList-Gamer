@@ -23,6 +23,14 @@ class TaskController extends AbstractController{
             }   
                   require_once(__DIR__ . "/../Views/addtask.view.php"); 
       }
+      public function task(){
+            //si ya un get on recupere l'id
+            if(isset($_GET['id'])){
+                  $id =htmlspecialchars($_GET['id']);
+                  $task = new Task($id, null, null,null);
+                  $mytask = $task->getTaskById();
+            }
+      }
 
 
 }
