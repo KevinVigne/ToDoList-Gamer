@@ -24,8 +24,15 @@ require_once(__DIR__ . "/partials/head.view.php");
                 <?php
             }
             ?>
+            <label for="status">Statut</label>
+            <select name="status" id="status">
+                <option value =""> Veuillez choisir un statut </option>
+                <option value ="à faire"> A faire </option>
+                <option value ="en cours"> En cours </option>
+                <option value ="terminé"> Terminé </option>
+            </select>
         </div>
-        <button type="submit" name="addtask" class="btn btn-success mt-5">Ajouter !</button>
+        <button type="submit" name="editTask" class="btn btn-success mt-5">Modifier!</button>
     </div>
 </form>
 <?php
