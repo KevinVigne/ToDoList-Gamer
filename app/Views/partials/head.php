@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bonne nuit les petits</title>
+
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/f5a1d28d53.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    
+<nav class="navbar bg-body-tertiary">
+  <form class="container-fluid justify-content-start">
+    <a href ="/" class="btn btn-outline-success me-2" type="button">Accueil</a>
+    <a href ="/ajouter" class="btn  btn-outline-success" type="button" name ="addTask">Ajouter une Tâche</a>
+  </form>
+</nav>
