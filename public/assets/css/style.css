@@ -1,0 +1,18 @@
+:rout{
+    --bag: #F00C3B;
+    --nav: #F02A2A;
+    --footer: #F05346;
+    --police: #F03B82;
+}
+
+body{
+    background-color: var(--bag);
+}
+
+nav{
+    background-color: var(--nav);
+}
+
+footer{
+    background-color: var(--footer);
+}
