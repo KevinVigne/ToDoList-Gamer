@@ -60,6 +60,14 @@ class Task
             return false;
         }
       }
+      public function editTask(){
+        $pdo = Database::getConnection();
+        $sql = "UPDATE `task` SET `title` = ?, `description` = ?, `status` = ? WHERE `id_task` = ?";
+        $stmt = $pdo->prepare($sql);
+        return $stmt->execute([$this->title,$this->description,$this->status,$this->id_task]);
+
+        
+      }
 
     //Faire les Get  
      public function getIdTask():?int

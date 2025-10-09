@@ -32,6 +32,31 @@ class TaskController extends AbstractController{
             }
              require_once(__DIR__ . "/../Views/taskById.view.php"); 
       }
-
+      //on doit recuperer toutes info chaque fois pour pouvoir les modifier 
+      public function editTask(){
+            if(isset($_GET['id'])){// on recupere id dans l'url
+                  $id=htmlspecialchars($_GET['id']);//on la stock 
+                  $task= new Task($id,null,null,null);//on instancie une nouvelle tache 
+                  $mytask = $task->getTaskById();//on lui récupére les données grace a son id
+                  if($mytask){ //si la tache existe 
+                        if(isset($_POST['editTask'])) {//si l'user a cliquer sur le bouton
+                              $title = htmlspecialchars($_POST['title']);
+                              $description  = htmlspecialchars($_POST['description']);
+                              $status  = htmlspecialchars($_POST['status']);
+                              if(empty($this->arrayError)){
+                                    $updateTask = new Task($id,$title,$description,$status);
+                                    $updateTask->editTask();
+                                    $this->redirectToRoute('/tache?id='.$id,200);
+                              }
+                        }
+                        require_once(__DIR__ . "/../Views/taskById.view.php"); //si la tache existe on affiche re required on le fait toujours dans la fonction créé
+                  }else{
+                        $this->redirectToRoute('/', 302);
+                  }
+            }else{
+                        $this->redirectToRoute('/', 302);
+                  }
+            
+      }
 
 }
