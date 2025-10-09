@@ -24,12 +24,13 @@ class TaskController extends AbstractController{
                   require_once(__DIR__ . "/../Views/addtask.view.php"); 
       }
       public function task(){
-            //si ya un get on recupere l'id
+            //si ya un get on recupere l'id pour faire en sorte de l'afficher une seule tache 
             if(isset($_GET['id'])){
                   $id =htmlspecialchars($_GET['id']);
                   $task = new Task($id, null, null,null);
                   $mytask = $task->getTaskById();
             }
+             require_once(__DIR__ . "/../Views/taskById.view.php"); 
       }
 
 

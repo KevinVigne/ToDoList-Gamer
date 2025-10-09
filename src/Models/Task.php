@@ -46,13 +46,14 @@ class Task
             $alltask[] = $task;
         } return $alltask; 
       }
-      //recuperer une tache par son id
+      //recuperer les données de la tache par l'id de la tache 
       public function getTaskById(){
+
         $pdo = Database::getConnection();
         $sql = "SELECT `id_task`,`title`,`description`,`status` FROM `task` WHERE `id_task`=?" ;
         $stmt = $pdo->prepare($sql);
-        $stmt->execute($this->id_task);
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->execute([$this->id_task]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
         if($result){
             return new Task($result['id_task'],$result['title'],$result['description'],$result['status']);
         }else {
