@@ -14,8 +14,7 @@ if(isset($allTask)){
       <div class="card-body">
       <h5 class="card-title"><?= $task->getTitle();?></h5>
       <p class="card-text"><?= $task->getDescription();?></p>
-      <a href="#" class="btn btn-primary">Modifier</a>
-      <a href="#" class="btn btn-primary">Supprimer</a>
+      <a class="btn btn-success"href="/tache?id= <?= $task->getIdTask()?>">Voir+</a> <!-- on creer un button pour afficher la tache -->
       </div>
     </div>
     <?php
