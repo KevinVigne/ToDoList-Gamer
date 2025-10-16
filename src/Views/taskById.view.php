@@ -7,7 +7,7 @@ require_once(__DIR__ . "/partials/head.view.php");
     <h5 class="card-title"><?=  $mytask->getStatus()?></h5>
     <p class="card-text"><?= $mytask->getTitle()?></p>
     <p class="card-text"><?=$mytask->getDescription() ?></p>
-    <a href="#" class="btn btn-primary">Modifier</a>
+    <a href="/modifier?id=<?=$mytask->getIdTask() ?>" class="btn btn-primary">Modifier</a>
      <a href="#" class="btn btn-primary">Supprimer</a>
   </div>
 </div>
