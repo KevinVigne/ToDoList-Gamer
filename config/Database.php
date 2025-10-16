@@ -16,7 +16,7 @@ class Database
                 "root",
                 "admin"
             );
-            //echo "Connexion réussie ✅";
+            
 
 
         } catch (Exception $e) {
