@@ -43,13 +43,16 @@ class TaskController extends AbstractController{
                               $title = htmlspecialchars($_POST['title']);
                               $description  = htmlspecialchars($_POST['description']);
                               $status  = htmlspecialchars($_POST['status']);
+                              $this->totalCheck('title',$title);
+                              $this->totalCheck('description',$description);
+                              $this->totalCheck('status',$status);
                               if(empty($this->arrayError)){
                                     $updateTask = new Task($id,$title,$description,$status);
                                     $updateTask->editTask();
                                     $this->redirectToRoute('/tache?id='.$id,200);
                               }
                         }
-                        require_once(__DIR__ . "/../Views/taskById.view.php"); //si la tache existe on affiche re required on le fait toujours dans la fonction créé
+                        require_once(__DIR__ . "/../Views/editTask.view.php"); //si la tache existe on affiche re required on le fait toujours dans la fonction créé
                   }else{
                         $this->redirectToRoute('/', 302);
                   }
@@ -57,6 +60,19 @@ class TaskController extends AbstractController{
                         $this->redirectToRoute('/', 302);
                   }
             
+      }
+      public function  deleteTask()
+      {
+            if(isset($_POST['deleteTask']))
+            {
+                  if(isset($_POST['id']))
+                  {
+                        $id = htmlspecialchars($_POST['id']);
+                        $task = new Task($id,null,null,null);
+                        $task->deleteTask();
+                        $this->redirectToRoute('/',200);
+                  }
+            }
       }
 
 }

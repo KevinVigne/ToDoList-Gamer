@@ -29,7 +29,7 @@ class Task
            $stmt = $pdo->prepare($sql);
            return $stmt->execute([$this->title, $this->description, $this->status]);
     }
-
+      //recuperer les taches dans la base de données 
         public function allTask()
     {
         $pdo = Database::getConnection();
@@ -67,6 +67,13 @@ class Task
         return $stmt->execute([$this->title,$this->description,$this->status,$this->id_task]);
 
         
+      }
+      public function deleteTask()
+      {
+        $pdo = Database::getConnection();
+        $sql = "DELETE FROM `task` WHERE `id_task`= ?";
+        $statement =$pdo->prepare($sql);
+        return $statement->execute([$this->id_task]);
       }
 
     //Faire les Get  

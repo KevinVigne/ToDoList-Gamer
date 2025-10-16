@@ -39,9 +39,13 @@ abstract class AbstractController
                 break;
             case 'title':
                 if(!preg_match($regexTitle, $value)){
-                    $this->arrayError['title'] = 'Merci de renseigner un texte correcte!';
+                    $this->arrayError['title'] = 'Merci de renseigner un titre correcte!';
                 }
                 break;
+            case 'status':
+                if(!preg_match($regexDescription, $value)){
+                    $this->arrayError['status'] = 'Merci de renseigner un statut correcte!';
+                }
         }
     }
 
